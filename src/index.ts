@@ -158,9 +158,7 @@ class CustomHeaderHandler {
 				case "description":
 					element.setAttribute("content", this.metadata.description);
 					break;
-				case "image":
-					element.setAttribute("content", this.metadata.image);
-					break;
+				//Removed
 			}
 
 			const type = element.getAttribute("property");
@@ -173,10 +171,7 @@ class CustomHeaderHandler {
 					console.log('Replacing og:description');
 					element.setAttribute("content", this.metadata.description);
 					break;
-				case "og:image":
-					console.log('Replacing og:image');
-					element.setAttribute("content", this.metadata.image);
-					break;
+				// Removed
 			}
 		}
 	}
