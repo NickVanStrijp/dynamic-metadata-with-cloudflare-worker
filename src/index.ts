@@ -31,13 +31,14 @@ export default {
 			// Remove any trailing slash from the URL
 			const trimmedUrl = url.endsWith('/') ? url.slice(0, -1) : url;
 		
-			// Split the trimmed URL by '/' and get the last part: The id
+			// Split the trimmed URL by '/' and get the last part: The geo_area_slug and job_type_slug
 			const parts = trimmedUrl.split('/');
-			const id = parts[parts.length - 1];
+			const geo_area_slug = parts[parts.length - 1];
+			const job_type_slug = parts[parts.length - 2];
 		
 			// Replace the placeholder in metaDataEndpoint with the actual id
-			const placeholderPattern = /{([^}]+)}/;
-			const metaDataEndpointWithId = metaDataEndpoint.replace(placeholderPattern, id);
+			// const placeholderPattern = /{([^}]+)}/;
+			const metaDataEndpointWithId = "https://xnfj-dys4-m8rx.n7d.xano.io/api:dVTDQ57n/static_pay_metadata/" + job_type_slug + "/" + geo_area_slug;
 		
 			// Fetch metadata from the API endpoint
 			const metaDataResponse = await fetch(metaDataEndpointWithId);
