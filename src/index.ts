@@ -138,9 +138,7 @@ class CustomHeaderHandler {
 				case "description":
 					element.setAttribute("content", this.metadata.description);
 					break;
-				case "image":
-					element.setAttribute("content", this.metadata.image);
-					break;
+		// Removed
 				case "keywords":
 					element.setAttribute("content", this.metadata.keywords);
 					break;
