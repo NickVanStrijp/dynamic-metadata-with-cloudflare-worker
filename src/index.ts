@@ -10,7 +10,7 @@ export default {
 
     // Parse the request URL
     const url = new URL(request.url);
-    const referer = request.headers.get('Referer')
+    const referer = request.headers.get('Referer');
 
     // Function to get the pattern configuration that matches the URL
     function getPatternConfig(url) {
@@ -34,13 +34,14 @@ export default {
       // Remove any trailing slash from the URL
       const trimmedUrl = url.endsWith('/') ? url.slice(0, -1) : url;
     
-      // Split the trimmed URL by '/' and get the last part: The id
+      // Split the trimmed URL by '/' and get the last part: Hardcode the geo area and job type slug
       const parts = trimmedUrl.split('/');
-      const id = parts[parts.length - 1];
+      const geo_area_slug = parts[parts.length - 1];
+      const job_type_slug = parts[parts.length - 2];
     
       // Replace the placeholder in metaDataEndpoint with the actual id
-      const placeholderPattern = /{([^}]+)}/;
-      const metaDataEndpointWithId = metaDataEndpoint.replace(placeholderPattern, id);
+      // const placeholderPattern = /{([^}]+)}/;
+      const metaDataEndpointWithId = "https://xnfj-dys4-m8rx.n7d.xano.io/api:dVTDQ57n/static_pay_metadata/" + job_type_slug + "/" + geo_area_slug;
     
       // Fetch metadata from the API endpoint
       const metaDataResponse = await fetch(metaDataEndpointWithId);
@@ -165,9 +166,9 @@ class CustomHeaderHandler {
         case "description":
           element.setAttribute("content", this.metadata.description);
           break;
-        case "image":
+        /* case "image":
           element.setAttribute("content", this.metadata.image);
-          break;
+          break; */
         case "keywords":
           element.setAttribute("content", this.metadata.keywords);
           break;
@@ -187,9 +188,11 @@ class CustomHeaderHandler {
         case "description":
           element.setAttribute("content", this.metadata.description);
           break;
-        case "image":
+        /*
+	case "image":
           element.setAttribute("content", this.metadata.image);
           break;
+	  */
       }
 
       const type = element.getAttribute("property");
@@ -202,10 +205,12 @@ class CustomHeaderHandler {
           console.log('Replacing og:description');
           element.setAttribute("content", this.metadata.description);
           break;
-        case "og:image":
+        /*
+	case "og:image":
           console.log('Replacing og:image');
           element.setAttribute("content", this.metadata.image);
           break;
+	  */
       }
 
       // Remove the noindex meta tag
