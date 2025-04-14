@@ -1,14 +1,15 @@
 export const config = {
-  domainSource: "https://f69a71f6-9fd8-443b-a040-78beb5d404d4.weweb-preview.io", // Your WeWeb app preview link
+  domainSource: "https://www.nursejobs.health", // Your WeWeb app preview link
   patterns: [
       {
-          pattern: "/event/[^/]+",
-          metaDataEndpoint: "https://xeo6-2sgh-ehgj.n7.xano.io/api:8wD10mRd/event/{id}/meta"
-      },
-      {
-          pattern: "/team/profile/[^/]+",
-          metaDataEndpoint: "https://xeo6-2sgh-ehgj.n7.xano.io/api:LjwxezTv/team/profile/{profile_id}/meta"
+          pattern: "/pay/[^/]+/[^/]+",
+          metaDataEndpoint: "https://xnfj-dys4-m8rx.n7d.xano.io/api:dVTDQ57n/static_pay_metadata/{job_type_slug}/{geo_area_slug}"
       }
+		//,
+     // {
+     //     pattern: "/team/profile/[^/]+",
+      //    metaDataEndpoint: "https://xeo6-2sgh-ehgj.n7.xano.io/api:LjwxezTv/team/profile/{profile_id}/meta"
+     // }
       // Add more patterns and their metadata endpoints as needed
   ]
 };
