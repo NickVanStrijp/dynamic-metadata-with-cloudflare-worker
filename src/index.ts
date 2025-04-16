@@ -41,7 +41,7 @@ export default {
     
       // Replace the placeholder in metaDataEndpoint with the actual id
       // const placeholderPattern = /{([^}]+)}/;
-      const metaDataEndpointWithId = "https://xnfj-dys4-m8rx.n7d.xano.io/api:dVTDQ57n/static_pay_metadata/" + job_type_slug + "/" + geo_area_slug;
+      const metaDataEndpointWithId = "https://xnfj-dys4-m8rx.n7d.xano.io/api:dVTDQ57n/static_pay_metadata/" + job_type_slug + "/" + geo_area_slug
     
       // Fetch metadata from the API endpoint
       const metaDataResponse = await fetch(metaDataEndpointWithId);
